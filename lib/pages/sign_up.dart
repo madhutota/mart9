@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import './login.dart';
+import './grid_list.dart';
 
 class SignUpHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         body: Container(
           padding: EdgeInsets.only(left: 16, right: 16),
@@ -78,13 +79,23 @@ class SignUpHomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(3),
                         color: Colors.black),
-                    child: Center(
-                      child: Text(
-                        'REGISTER',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
-                            color: Colors.white),
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.push<dynamic>(
+                          context,
+                          MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) => GridListPage(),
+                          ),
+                        );
+                      },
+                      child: Center(
+                        child: Text(
+                          'REGISTER',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
@@ -104,12 +115,22 @@ class SignUpHomePage extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                             color: Colors.black),
                       ),
-                      Text(
-                        "Login here",
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black),
+                      InkWell(
+                        onTap: (){
+                          Navigator.push<dynamic>(
+                            context,
+                            MaterialPageRoute<dynamic>(
+                              builder: (BuildContext context) => LoginHomePage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Login here",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black),
+                        ),
                       )
                     ],
                   ),
@@ -118,7 +139,6 @@ class SignUpHomePage extends StatelessWidget {
             ),
           ),
         ),
-      ),
     );
   }
 }
